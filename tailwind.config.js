@@ -18,6 +18,9 @@ export default {
         "highlight": "#FFC000",
         "error": "#D00439",
         "footer": "#2E2E2E",
+      },
+      fontFamily: {
+        "caveat": ["Caveat", "serif"]
       }
     },
   },

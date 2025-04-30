@@ -3,12 +3,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import MainLayout from "@layouts/mainLayout/MainLayout"
 import AuthLayout from "@layouts/authLayout/AuthLayout"
 import ProtectedRoute from "@components/auth/ProtectedRoute"
-const Landing = lazy(() => import('@pages/Landing'))
-const Home = lazy(() => import('@pages/Home'))
-const Products = lazy(() => import('@pages/Products'))
-const AboutUs = lazy(() => import('@pages/AboutUs'))
-const Blog = lazy(() => import('@pages/Blog'))
-const ContactUs = lazy(() => import('@pages/ContactUs'))
+const Landing = lazy(() => import('@pages/landing/Landing'))
+const Home = lazy(() => import('@pages/home/Home'))
+const Products = lazy(() => import('@pages/products/Products'))
+const AboutUs = lazy(() => import('@pages/about/AboutUs'))
+const Blog = lazy(() => import('@pages/blog/Blog'))
+const ContactUs = lazy(() => import('@pages/contact-us/ContactUs'))
 const Register = lazy(() => import('@pages/Register'))
 const Login = lazy(() => import('@pages/Login'))
 const ForgetPassword = lazy(() => import('@pages/ForgetPassword'))

@@ -8,7 +8,7 @@ import {Helmet} from "react-helmet";
 export default function Register() {
   const {handleSubmit, submitForm, register, formError, loading, token} = useRegister();
   if (token !== null) {
-    return <Navigate to={'/'} />
+    return <Navigate to={'/home'} />
   }
   return (
     <>

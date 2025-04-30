@@ -6,9 +6,9 @@ export default function MainLayout() {
   return (
     <div className="flex justify-between flex-col min-h-screen">
       <Header />
-      <div className="container flex-grow">
+      <main className="container flex-grow">
         <Outlet />
-      </div>
+      </main>
       <Footer />
     </div>
   )
