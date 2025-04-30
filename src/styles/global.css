@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .container {
+    @apply px-4 max-w-screen-xl
+  }
+}
+
+body {
+  background-color: #f6f6f6;
+  font-family: "Poppins", serif;
+}
