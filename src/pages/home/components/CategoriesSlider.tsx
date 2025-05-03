@@ -3,11 +3,10 @@ import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay  } from 'swiper/modules';
 import actGetCategories from '@store/categories/act/actGetCategories';
-import 'swiper/css';
 
 export default function CategoriesSlider() {
   const dispatch = useAppDispatch();
-  const {loading, data} = useAppSelector(state => state.categories);
+  const {loading, categories} = useAppSelector(state => state.categories);
   useEffect(() => {
     dispatch(actGetCategories()).unwrap();
   }, [dispatch])
@@ -23,12 +22,29 @@ export default function CategoriesSlider() {
             delay: 2000,
             disableOnInteraction: false,
           }}
+          breakpoints={{
+            0: {
+              slidesPerView: 2,
+            },
+            480: {
+              slidesPerView: 3,
+            },
+            768: {
+              slidesPerView: 5,
+            },
+            1024: {
+              slidesPerView: 6,
+            },
+            1280: {
+              slidesPerView: 8,
+            },
+          }}
         >
           {loading === 'pending' ? (
             <div className="flex items-center justify-center h-screen">
               <span className="loader"></span>
             </div> 
-          ) : data.map((item) => (
+          ) : categories.map((item) => (
             <SwiperSlide key={item._id}>
               <div className="text-center">
                 <div className="w-[140px] h-[140px] mb-3 mx-auto">

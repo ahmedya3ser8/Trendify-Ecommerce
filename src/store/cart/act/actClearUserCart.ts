@@ -1,16 +1,10 @@
-import { IProduct } from "@interfaces/iproduct";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { isAxiosError } from "axios";
 
-type TResponse = {
-  data: IProduct[],
-  results: number
-}
-
-const actGetProducts = createAsyncThunk('products/actGetProducts', async (_, thunkAPI) => {
+const actClearUserCart = createAsyncThunk('cart/actClearUserCart', async (_, thunkAPI) => {
   const {rejectWithValue} = thunkAPI;
   try {
-    const res = await axios.get<TResponse>(`https://ecommerce.routemisr.com/api/v1/products`);
+    const res = await axios.delete(`https://ecommerce.routemisr.com/api/v1/cart`);
     return res.data;
   } catch (error) {
     if (isAxiosError(error)) {
@@ -21,4 +15,4 @@ const actGetProducts = createAsyncThunk('products/actGetProducts', async (_, thu
   }
 })
 
-export default actGetProducts;
+export default actClearUserCart;

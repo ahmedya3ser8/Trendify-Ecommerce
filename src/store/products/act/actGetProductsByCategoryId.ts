@@ -3,7 +3,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { isAxiosError } from "axios";
 
 type TResponse = {
-  data: IProduct[]
+  data: IProduct[],
+  results: number
 }
 
 const actGetProductsByCategoryId = createAsyncThunk('products/actGetProductsByCategoryId', async (categoryId: string, thunkAPI) => {

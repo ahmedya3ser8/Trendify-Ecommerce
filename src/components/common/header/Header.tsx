@@ -1,9 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import { Heart, ShoppingCart, LogOut } from 'lucide-react';
+import { useAppDispatch, useAppSelector } from "@store/hooks";
+import { logout } from "@store/auth/authSlice";
+import { useEffect } from "react";
+import actGetLoggedUserCart from "@store/cart/act/actGetLoggedUserCart";
 
 export default function Header() {
+  const dispatch = useAppDispatch();
+  const {numOfCartItems} = useAppSelector(state => state.cart);
+  useEffect(() => {
+    dispatch(actGetLoggedUserCart()).unwrap();
+  }, [dispatch])
   return (
-    <header className="bg-white shadow-md">
+    <header className="fixed w-full bg-white z-[999] shadow-md">
       <div className="container flex justify-between items-center py-4">
         <Link to="/home" className="text-3xl text-primary font-serif">Trendify</Link>
         <nav className="flex justify-between items-center flex-1 ps-16">
@@ -26,13 +35,20 @@ export default function Header() {
           </ul>
           <ul className="flex gap-3">
             <li>
-              <Link to='/'> <Heart className="h-8 text-primary" /> </Link>
+              <Link to='/wishlist' className="relative">
+                <Heart className="h-8 text-primary" /> 
+              </Link>
             </li>
             <li>
-              <Link to='/'> <ShoppingCart className="h-8 text-primary" /> </Link>
+              <Link to='/cart' className="relative"> 
+                <ShoppingCart className="h-8 text-primary" />
+                <span className="absolute -top-[7px] -right-[7px] w-[23px] h-[23px] bg-primary text-white rounded-full flex justify-center items-center text-xs border border-white">
+                  {numOfCartItems}
+                </span>
+              </Link>
             </li>
             <li>
-              <span> <LogOut className="h-8 text-primary" /> </span>
+              <span className="cursor-pointer" onClick={() => dispatch(logout())}> <LogOut className="h-8 text-primary" /> </span>
             </li>
           </ul>
         </nav>

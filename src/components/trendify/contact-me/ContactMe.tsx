@@ -1,7 +1,7 @@
 
 export default function ContactMe() {
   return (
-    <section className="contact py-28">
+    <section className="contact py-10 md:py-16">
       <div className="container">
         <h2 className="text-text font-semibold text-4xl mb-2">Contact me</h2>
         <p className="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit sequi ad unde.</p>
@@ -9,21 +9,21 @@ export default function ContactMe() {
           <div className="col flex items-center gap-6 mb-5">
             <div className="w-1/2">
               <label htmlFor="firstName" className="block mb-2 font-semibold text-text">First name</label>
-              <input type="text" id="firstName" className="w-full h-[40px] p-2 text-gray-400 rounded-md outline-none border border-primary focus:ring-0 focus:shadow-none focus:border-primary" />
+              <input type="text" id="firstName" placeholder="username" className="w-full h-[40px] p-2 text-gray-400 rounded-md outline-none border border-primary focus:ring-0 focus:shadow-none focus:border-primary" />
             </div>
             <div className="w-1/2">
               <label htmlFor="lastName" className="block mb-2 font-semibold text-text">Last name</label>
-              <input type="text" id="lastName" className="w-full h-[40px] p-2 text-gray-400 rounded-md outline-none border border-primary focus:ring-0 focus:shadow-none focus:border-primary" />
+              <input type="text" id="lastName" placeholder="lastName" className="w-full h-[40px] p-2 text-gray-400 rounded-md outline-none border border-primary focus:ring-0 focus:shadow-none focus:border-primary" />
             </div>
           </div>
           <div className="col flex items-center gap-6 mb-5">
             <div className="w-1/2">
               <label htmlFor="email" className="block mb-2 font-semibold text-text">Email</label>
-              <input type="email" id="email" className="w-full h-[40px] p-2 text-gray-400 rounded-md outline-none border border-primary focus:ring-0 focus:shadow-none focus:border-primary" />
+              <input type="email" id="email" placeholder="exapmle@exapmle.com" className="w-full h-[40px] p-2 text-gray-400 rounded-md outline-none border border-primary focus:ring-0 focus:shadow-none focus:border-primary" />
             </div>
             <div className="w-1/2">
               <label htmlFor="phoneNumber" className="block mb-2 font-semibold text-text">Phone number</label>
-              <input type="tel" id="phoneNumber" className="w-full h-[40px] p-2 text-gray-400 rounded-md outline-none border border-primary focus:ring-0 focus:shadow-none focus:border-primary" />
+              <input type="tel" id="phoneNumber" placeholder="01123456789" className="w-full h-[40px] p-2 text-gray-400 rounded-md outline-none border border-primary focus:ring-0 focus:shadow-none focus:border-primary" />
             </div>
           </div>
           <div className="mb-5">

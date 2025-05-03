@@ -17,8 +17,8 @@ export default function TopProducts() {
         <MainTitle title="Top Products" description={<>Top Picks for You!"</>} />
         {loading === 'pending' ? (
           <div className="flex items-center justify-center h-screen">
-          <span className="loader"></span>
-        </div>
+            <span className="loader"></span>
+          </div>
         ) : (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10">

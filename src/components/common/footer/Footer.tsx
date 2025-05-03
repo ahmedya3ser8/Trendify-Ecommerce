@@ -6,7 +6,7 @@ const colCoustomerSupport = ["Affiliates", "Apply Pay Payments", "Returns", "Ret
 export default function Footer() {
   return (
     <footer className="bg-[#2e2e2e] py-10 md:py-16">
-      <div className="container max-w-screen-xl px-5 md:px-0">
+      <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-[60px] text-white">
           <div className="col col-span-2">
             <h2 className="text-4xl font-semibold mb-3">Trendify</h2>

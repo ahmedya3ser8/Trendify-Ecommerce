@@ -4,13 +4,13 @@ import actGetCategories from "./act/actGetCategories";
 import { ICategory } from "@interfaces/icategory";
 
 type TCategoryState = {
-  data: ICategory[];
+  categories: ICategory[];
   loading: TLoading;
   error: string | null;
 }
 
 const initialState: TCategoryState = {
-  data: [],
+  categories: [],
   loading: 'idle',
   error: null
 }
@@ -26,7 +26,7 @@ const categoriesSlice = createSlice({
     })
     builder.addCase(actGetCategories.fulfilled, (state, action) => {
       state.loading = 'succeeded';
-      state.data = action.payload.data;
+      state.categories = action.payload.data;
     })
     builder.addCase(actGetCategories.rejected, (state, action) => {
       state.loading = 'failed';

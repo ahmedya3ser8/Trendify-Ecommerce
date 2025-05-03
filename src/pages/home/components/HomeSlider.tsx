@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import homeSliderImg from '@assets/images/home-slider.jpeg'
-import 'swiper/css';
 
 export default function HomeSlider() {
   return (

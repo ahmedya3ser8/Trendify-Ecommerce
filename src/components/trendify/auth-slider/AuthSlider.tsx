@@ -3,8 +3,6 @@ import { Autoplay, EffectFade  } from 'swiper/modules';
 import authSlider1 from '@assets/images/auth-slider-1.png';
 import authSlider2 from '@assets/images/auth-slider-2.png';
 import authSlider3 from '@assets/images/auth-slider-3.png';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
 
 const slides: string[] = [authSlider1, authSlider2, authSlider3];
 

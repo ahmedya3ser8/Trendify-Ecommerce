@@ -26,7 +26,13 @@ const initialState: IAuthState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      localStorage.removeItem('accessToken');
+      state.token = null;
+      state.user = null;
+    }
+  },
   extraReducers: (builder) => {
     // register
     builder.addCase(actAuthRegister.pending, (state) => {
@@ -61,4 +67,5 @@ const authSlice = createSlice({
   }
 })
 
+export const {logout} = authSlice.actions; 
 export default authSlice.reducer;

@@ -1,16 +1,15 @@
-import { IProduct } from "@interfaces/iproduct";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { isAxiosError } from "axios";
 
-type TResponse = {
-  data: IProduct[],
-  results: number
+type TData = {
+  productId: string,
+  count: number
 }
 
-const actGetProducts = createAsyncThunk('products/actGetProducts', async (_, thunkAPI) => {
+const actUpdateCartProductQuantity = createAsyncThunk('cart/actUpdateCartProductQuantity', async (data: TData, thunkAPI) => {
   const {rejectWithValue} = thunkAPI;
   try {
-    const res = await axios.get<TResponse>(`https://ecommerce.routemisr.com/api/v1/products`);
+    const res = await axios.put(`https://ecommerce.routemisr.com/api/v1/cart/${data.productId}`, {count: data.count});
     return res.data;
   } catch (error) {
     if (isAxiosError(error)) {
@@ -21,4 +20,4 @@ const actGetProducts = createAsyncThunk('products/actGetProducts', async (_, thu
   }
 })
 
-export default actGetProducts;
+export default actUpdateCartProductQuantity;
