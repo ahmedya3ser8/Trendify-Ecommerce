@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { Heart, Star, Plus, Loader } from 'lucide-react';
 import { memo, useCallback, useState } from 'react';
 import toast from "react-hot-toast";
+import { Link } from 'react-router-dom';
 
 const ProductItem = memo(({id, imageCover, price, title, ratingsAverage}: IProduct) => {
   const dispatch = useAppDispatch();
@@ -24,12 +25,12 @@ const ProductItem = memo(({id, imageCover, price, title, ratingsAverage}: IProdu
   }, [dispatch]);
   return (
     <div className="product bg-white p-2">
-      <div className="image cursor-pointer bg-[#F1F1F1] rounded-[5px] w-full mb-2 relative">
+      <Link to={`/product/${id}`} className="image block cursor-pointer bg-[#F1F1F1] rounded-[5px] w-full mb-2 relative">
         <img loading="lazy" src={imageCover} className="w-full h-[275px] object-contain" alt="product-image" />
         <span className="w-[2.5rem] h-[40px] bg-white border absolute top-3 right-3 flex justify-center items-center z-30 rounded-full cursor-pointer">
           <Heart className='text-primary' />
         </span>
-      </div>
+      </Link>
       <div className="content p-2 text-text">
         <h3 className="text-[24px] line-clamp-1"> {title} </h3>
         <span className="flex items-center gap-1 py-2">

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios, { isAxiosError } from "axios";
+import axiosErrorHandler from "@utils/axiosErrorHandler";
+import axios from "axios";
 
 type TFormData = {
   name: string;
@@ -12,15 +13,10 @@ type TFormData = {
 const actAuthRegister = createAsyncThunk('auth/actAuthRegister', async (formData: TFormData, thunkAPI) => {
   const {rejectWithValue} = thunkAPI;
   try {
-    const res = await axios.post(`https://ecommerce.routemisr.com/api/v1/auth/signup`, formData);
-    console.log(res.data);
+    const res = await axios.post(`/api/v1/auth/signup`, formData);
     return res.data;
   } catch (error) {
-    if (isAxiosError(error)) {
-      return rejectWithValue(error.response?.data.message || error.message)
-    } else {
-      return rejectWithValue('an unexpected error')
-    }
+    return rejectWithValue(axiosErrorHandler(error));
   }
 })
 

@@ -32,6 +32,9 @@ export default function Header() {
             <li>
               <NavLink to='/contactus' className="p-2 text-gray-400 font-semibold transition-colors duration-300">Contact us</NavLink>
             </li>
+            <li>
+              <NavLink to='/allorders' className="p-2 text-gray-400 font-semibold transition-colors duration-300">All Orders</NavLink>
+            </li>
           </ul>
           <ul className="flex gap-3">
             <li>

@@ -1,15 +1,13 @@
 import useProducts from '@hooks/useProducts';
 import ProductItem from '@components/trendify/product-item/ProductItem';
 import { ChevronDown } from 'lucide-react';
+import PageTitle from '@components/common/page-title/PageTitle';
 
-import { Helmet } from 'react-helmet';
 export default function Products() {
   const {categories, selectedCatId, categoryName, productItems, isOpen, data, loading, selectedCategoryId, toggleMenu} = useProducts()
   return (
     <>
-      <Helmet>
-        <title>Products</title>
-      </Helmet>
+      <PageTitle title="Products" />
       <section className="products py-10 md:py-16">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-[20%_minmax(0,1fr)] gap-5">
@@ -35,7 +33,7 @@ export default function Products() {
               </h2>
               {loading === 'pending' ? (
                 <>
-                  <div className="flex items-center justify-center h-full">
+                  <div className="flex items-center justify-center h-screen">
                     <span className="loader"></span>
                   </div>
                 </>

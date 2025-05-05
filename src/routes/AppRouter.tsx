@@ -15,6 +15,8 @@ const Cart = lazy(() => import('@pages/cart/Cart'))
 const Wishlist = lazy(() => import('@pages/wishlist/Wishlist'))
 const ForgetPassword = lazy(() => import('@pages/ForgetPassword'))
 const Checkout = lazy(() => import('@pages/checkout/Checkout'))
+const AllOrders = lazy(() => import('@pages/all-orders/AllOrders'))
+const ProductDetails = lazy(() => import('@pages/product-details/ProductDetails'))
 import NotFound from "@pages/NotFound"
 
 const router  = createBrowserRouter([
@@ -30,8 +32,10 @@ const router  = createBrowserRouter([
       { path: 'blog', element: <Suspense> <ProtectedRoute> <Blog /> </ProtectedRoute> </Suspense> },
       { path: 'contactus', element: <Suspense> <ProtectedRoute> <ContactUs /> </ProtectedRoute> </Suspense> },
       { path: 'cart', element: <Suspense> <ProtectedRoute> <Cart /> </ProtectedRoute> </Suspense> },
+      { path: 'allorders', element: <Suspense> <ProtectedRoute> <AllOrders /> </ProtectedRoute> </Suspense> },
       { path: 'wishlist', element: <Suspense> <ProtectedRoute> <Wishlist /> </ProtectedRoute> </Suspense> },
-      { path: 'checkout/:id', element: <Suspense> <ProtectedRoute> <Checkout /> </ProtectedRoute> </Suspense> }
+      { path: 'checkout/:id', element: <Suspense> <ProtectedRoute> <Checkout /> </ProtectedRoute> </Suspense> },
+      { path: 'product/:id', element: <Suspense> <ProtectedRoute> <ProductDetails /> </ProtectedRoute> </Suspense> }
     ]
   },
   {

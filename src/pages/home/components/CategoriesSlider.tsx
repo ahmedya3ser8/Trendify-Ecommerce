@@ -48,7 +48,7 @@ export default function CategoriesSlider() {
             <SwiperSlide key={item._id}>
               <div className="text-center">
                 <div className="w-[140px] h-[140px] mb-3 mx-auto">
-                  <img src={item.image} className="w-full h-full object-cover rounded-full" alt="category-image" />
+                  <img loading='lazy' src={item.image} className="w-full h-full object-cover rounded-full" alt="category-image" />
                 </div>
                 <h3 className="text-text-color font-medium"> {item.name} </h3>
               </div>

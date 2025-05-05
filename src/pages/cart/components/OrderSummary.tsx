@@ -39,7 +39,6 @@ export default function OrderSummary({totalPrice, cartId}: {totalPrice: number, 
           <button className="absolute right-[5px] top-[10%] py-2 px-3 bg-primary text-white rounded-md">Apply</button>
         </div>
         <Link to={`/checkout/${cartId}`} className="p-2 block text-center w-full bg-primary text-white rounded-full py-3">Proceed To Checkout</Link>
-        <p>cartid {cartId}</p>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet';
 import { Quote } from 'lucide-react';
+import PageTitle from '@components/common/page-title/PageTitle';
 import aboutHeroImg from '@assets/images/about-us.jpg'
 import aboutSignImg from '@assets/images/about-sign.png'
 import aboutUsImg1 from '@assets/images/aboutus-1.png'
@@ -16,13 +16,11 @@ const aboutUsFooterImgs = [aboutUsFooterImg1, aboutUsFooterImg2, aboutUsFooterIm
 export default function AboutUs() {
   return (
     <>
-      <Helmet>
-        <title>AboutUs</title>
-      </Helmet>
+      <PageTitle title="AboutUs" />  
       <section className="about-hero py-10 md:py-16">
         <div className="container relative">
           <div className="image md:w-[80%] h-[600px] ms-auto border border-[#EAECF0]">
-            <img src={aboutHeroImg} className="w-full h-full rounded-[36px]" alt="about-us" />
+            <img loading='lazy' src={aboutHeroImg} className="w-full h-full rounded-[36px]" alt="about-us" />
           </div>
           <div className="content absolute left-0 top-1/2 -translate-y-[50%] w-[350px] md:w-[500px] p-8 rounded-3xl bg-white">
             <span className="text-primary text-4xl">
@@ -35,7 +33,7 @@ export default function AboutUs() {
             </p>
             <div className="flex justify-between items-center">
               <span className="text-text font-bold">Jack Donowan</span>
-              <img src={aboutSignImg} className="w-[150px]" alt="about-sign" />
+              <img loading='lazy' src={aboutSignImg} className="w-[150px]" alt="about-sign" />
             </div>
           </div>
         </div>
@@ -50,7 +48,7 @@ export default function AboutUs() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 mt-10">
             <div className="image">
-              <img src={aboutUsImg1} className="w-full object-cover" alt="aboutus" />
+              <img loading='lazy' src={aboutUsImg1} className="w-full object-cover" alt="aboutus" />
             </div>
             <div className="ps-6">
               <h2 className="text-text font-bold text-2xl mb-3">Why choose us ?</h2>
@@ -77,7 +75,7 @@ export default function AboutUs() {
               </p>
             </div>
             <div className="image">
-              <img src={aboutUsImg2} className="w-full object-cover"  alt="aboutus" />
+              <img loading='lazy' src={aboutUsImg2} className="w-full object-cover"  alt="aboutus" />
             </div>
           </div>
         </div>
@@ -86,7 +84,7 @@ export default function AboutUs() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
             <div className="image">
-              <img src={aboutUsImg3} className="w-full object-cover"  alt="aboutus" />
+              <img loading='lazy' src={aboutUsImg3} className="w-full object-cover"  alt="aboutus" />
             </div>
             <div className="content">
               <h2 className="text-text text-3xl mb-5 font-bold">Trusted online shopping</h2>
@@ -113,7 +111,7 @@ export default function AboutUs() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-0 mt-10">
             {aboutUsFooterImgs.map((img, index) => (
               <div key={index} className="image">
-                <img src={img} className="w-full h-full object-cover" alt="aboutus" />
+                <img loading='lazy' src={img} className="w-full h-full object-cover" alt="aboutus" />
               </div>
             ))}
           </div>

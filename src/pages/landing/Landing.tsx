@@ -1,17 +1,15 @@
-import { Helmet } from 'react-helmet';
-import Hero from './components/Hero';
-import SpecialServices from '@components/trendify/special-services/SpecialServices';
-import SpecialProducts from '@components/trendify/special-products/SpecialProducts';
-import SpecialDiscover from '@components/trendify/special-discover/SpecialDiscover';
-import SpecialTestimonials from '@components/trendify/special-testimonials/SpecialTestimonials';
+import PageTitle from '@components/common/page-title/PageTitle';
 import ContactMe from '@components/trendify/contact-me/ContactMe';
+import SpecialDiscover from '@components/trendify/special-discover/SpecialDiscover';
+import SpecialProducts from '@components/trendify/special-products/SpecialProducts';
+import SpecialServices from '@components/trendify/special-services/SpecialServices';
+import SpecialTestimonials from '@components/trendify/special-testimonials/SpecialTestimonials';
+import Hero from './components/Hero';
 
 export default function Landing() {
   return (
     <>
-      <Helmet>
-        <title>Landing</title>
-      </Helmet>
+      <PageTitle title="Landing" />
       <>
         <Hero />
         <SpecialServices />

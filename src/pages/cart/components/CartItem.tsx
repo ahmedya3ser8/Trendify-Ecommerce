@@ -14,7 +14,7 @@ const CartItem = memo(({count, price, product, removeCartItem, updateQuantity}: 
   return (
     <div className="product flex flex-col gap-3 md:flex-row md:items-center border-b border-gray-300 py-5 first:pt-0 last:border-b-0">
       <div className="image mb-3">
-        <img src={product.imageCover} className="w-32" alt="product-image" />
+        <img loading='lazy' src={product.imageCover} className="w-32" alt="product-image" />
       </div>
       <div className="content flex justify-between items-center flex-1">
         <div className="caption">

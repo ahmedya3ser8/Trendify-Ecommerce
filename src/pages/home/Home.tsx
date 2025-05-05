@@ -1,21 +1,19 @@
-import { Helmet } from 'react-helmet';
-import HeroHome from './components/HeroHome';
-import FlashSale from './components/FlashSale';
-import SpecialProducts from '@components/trendify/special-products/SpecialProducts';
-import TopProducts from './components/TopProducts';
+import PageTitle from '@components/common/page-title/PageTitle';
 import SpecialDiscover from '@components/trendify/special-discover/SpecialDiscover';
+import SpecialProducts from '@components/trendify/special-products/SpecialProducts';
 import SpecialServices from '@components/trendify/special-services/SpecialServices';
 import SpecialTestimonials from '@components/trendify/special-testimonials/SpecialTestimonials';
-import NewCollection from './components/NewCollection';
 import CategoriesSlider from './components/CategoriesSlider';
+import FlashSale from './components/FlashSale';
+import HeroHome from './components/HeroHome';
 import HomeSlider from './components/HomeSlider';
+import NewCollection from './components/NewCollection';
+import TopProducts from './components/TopProducts';
 
 export default function Home() {
   return (
     <>
-      <Helmet>
-        <title>Home</title>
-      </Helmet>
+      <PageTitle title="Home" />
       <>
         <HeroHome />
         <CategoriesSlider />

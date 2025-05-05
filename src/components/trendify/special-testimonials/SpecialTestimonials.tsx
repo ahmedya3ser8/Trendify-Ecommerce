@@ -21,7 +21,7 @@ export default function SpecialTestimonials() {
               </span>
               <p className="my-3 text-gray-400">{item.description}</p>
               <div className="flex gap-2">
-                <img src={customerImg} className="size-12 rounded-full" alt="customer-image" />
+                <img loading='lazy' src={customerImg} className="size-12 rounded-full" alt="customer-image" />
                 <div className="flex justify-between items-center flex-1">
                   <h3 className="text-text text-xl font-bold"> {item.title} </h3>
                   <div className="flex items-center gap-1">

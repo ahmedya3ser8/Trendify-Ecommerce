@@ -8,15 +8,16 @@ type TInputProps<TFieldValue extends FieldValues> = {
   register: UseFormRegister<TFieldValue>,
   error: string,
   placeholder: string,
-  Icon: LucideIcon
+  Icon: LucideIcon,
+  disabled?: boolean
 }
 
-export default function Input<TFieldValue extends FieldValues>({label, Icon, placeholder, type = 'text', name, register, error}: TInputProps<TFieldValue>) {
+export default function Input<TFieldValue extends FieldValues>({label, Icon, disabled, placeholder, type = 'text', name, register, error}: TInputProps<TFieldValue>) {
   return (
     <div className="mb-3">
       <label htmlFor={name} className='text-text mb-2 block'>{label}</label>
       <div className="relative text-sm">
-        <input type={type} {...register(name)} id={name} placeholder={placeholder} className='ps-8 w-full h-[40px] bg-white rounded-md border-0 border-none outline-none focus:outline-none focus:ring-0 focus:shadow-none focus:border-none' />
+        <input disabled={disabled} type={type} {...register(name)} id={name} placeholder={placeholder} className='ps-8 w-full h-[40px] bg-white rounded-md border-0 border-none outline-none focus:outline-none focus:ring-0 focus:shadow-none focus:border-none' />
         <span className='absolute left-1 top-2 text-primary'>
           <Icon className='w-4' />
         </span>

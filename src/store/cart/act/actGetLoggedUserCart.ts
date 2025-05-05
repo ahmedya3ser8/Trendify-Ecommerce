@@ -1,6 +1,7 @@
 import { ICart } from "@interfaces/icart";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios, { isAxiosError } from "axios";
+import axiosErrorHandler from "@utils/axiosErrorHandler";
+import axios from "axios";
 
 type TResponse = {
   cartId: string | null,
@@ -12,14 +13,10 @@ type TResponse = {
 const actGetLoggedUserCart = createAsyncThunk('cart/actGetLoggedUserCart', async (_, thunkAPI) => {
   const {rejectWithValue} = thunkAPI;
   try {
-    const res = await axios.get<TResponse>(`https://ecommerce.routemisr.com/api/v1/cart`);
+    const res = await axios.get<TResponse>(`/api/v1/cart`);
     return res.data;
   } catch (error) {
-    if (isAxiosError(error)) {
-      return rejectWithValue(error.response?.data.message || error.message)
-    } else {
-      return rejectWithValue('an unexpected error')
-    }
+    return rejectWithValue(axiosErrorHandler(error));
   }
 })
 

@@ -1,9 +1,9 @@
-import { Link, Navigate } from 'react-router-dom';
-import useRegister from '@hooks/useRegister';
+import PageTitle from '@components/common/page-title/PageTitle';
 import Input from '@components/forms/input/Input';
 import AuthSlider from '@components/trendify/auth-slider/AuthSlider';
+import useRegister from '@hooks/useRegister';
 import { Loader, Lock, Mail, Phone, User } from 'lucide-react';
-import {Helmet} from "react-helmet";
+import { Link, Navigate } from 'react-router-dom';
 
 export default function Register() {
   const {handleSubmit, submitForm, register, formError, loading, token} = useRegister();
@@ -12,9 +12,7 @@ export default function Register() {
   }
   return (
     <>
-      <Helmet>
-        <title>Register</title>
-      </Helmet>
+      <PageTitle title="Register" />
       <section>
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2 pt-8 md:pt-10">

@@ -15,7 +15,7 @@ export default function HeroHome() {
           Discover the perfect blend of style, comfort, and functionality for your space.
         </p>
         <button className="py-2 px-5 w-[40%] md:w-2/12 bg-primary text-white rounded-3xl font-semibold">Shop Now</button>
-        <img src={arrow} className="relative w-[70px] md:w-[115px] left-[7%]" alt="arrow-image" />
+        <img loading='lazy' src={arrow} className="relative w-[70px] md:w-[115px] left-[7%]" alt="arrow-image" />
         <div className="flex flex-col gap-1 relative w-fit left-[24%] md:left-[18%] bottom-10">
           <div className="flex gap-1 text-xl">
             4.8 |

@@ -1,9 +1,9 @@
-import { Link, Navigate } from 'react-router-dom';
-import useLogin from '@hooks/useLogin';
+import PageTitle from '@components/common/page-title/PageTitle';
 import Input from '@components/forms/input/Input';
 import AuthSlider from '@components/trendify/auth-slider/AuthSlider';
+import useLogin from '@hooks/useLogin';
 import { Loader, Lock, Mail } from 'lucide-react';
-import { Helmet } from 'react-helmet';
+import { Link, Navigate } from 'react-router-dom';
 
 export default function Login() {
   const {handleSubmit, submitForm, register, formError, loading, token} = useLogin();
@@ -12,12 +12,10 @@ export default function Login() {
   }
   return (
     <>
-      <Helmet>
-        <title>Login</title>
-      </Helmet>
+      <PageTitle title='Login' />
       <section>
         <div className="flex flex-wrap">
-          <div className="w-full md:w-1/2 pt-8 md:pt-24">
+          <div className="w-full md:w-1/2 flex flex-col justify-center">
             <div className="container w-[70%]">
               <h1 className='text-3xl font-semibold text-text'>Welcome Back!</h1>
               <p className='text-sm text-gray-400'>Please log in or sign up to continue using our app.</p>

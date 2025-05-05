@@ -1,10 +1,10 @@
-import { Helmet } from 'react-helmet';
-import blogImg1 from '@assets/images/blog-1.png'
-import blogImg2 from '@assets/images/blog-2.png'
-import blogImg3 from '@assets/images/blog-3.png'
-import blogImg4 from '@assets/images/blog-4.png'
-import blogImg5 from '@assets/images/blog-5.png'
-import blogImg6 from '@assets/images/blog-6.png'
+import blogImg1 from '@assets/images/blog-1.png';
+import blogImg2 from '@assets/images/blog-2.png';
+import blogImg3 from '@assets/images/blog-3.png';
+import blogImg4 from '@assets/images/blog-4.png';
+import blogImg5 from '@assets/images/blog-5.png';
+import blogImg6 from '@assets/images/blog-6.png';
+import PageTitle from '@components/common/page-title/PageTitle';
 import Subscription from '@components/trendify/subscription/Subscription';
 
 const blogImgs = [blogImg1, blogImg2, blogImg3, blogImg4, blogImg5, blogImg6];
@@ -18,9 +18,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 export default function Blog() {
   return (
     <>
-      <Helmet>
-        <title>Blog</title>
-      </Helmet>
+      <PageTitle title="Blog" />   
       <section className="py-10 md:py-16">
         <div className="container max-w-screen-xl px-5 md:px-0">
           <div className="main-title text-center">
@@ -30,7 +28,7 @@ export default function Blog() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-10 mt-10 p-5">
             {blogImgs.map((img, index) => (
               <div key={index} className="blog rounded-md shadow-md">
-                <img src={img} className="w-full" alt="blog-image" />
+                <img loading='lazy' src={img} className="w-full" alt="blog-image" />
                 <div className="caption bg-white p-5 text-gray-500">
                   <div className="flex justify-between items-center">
                     <span>Fashion</span>

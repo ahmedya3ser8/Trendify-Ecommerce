@@ -2,6 +2,9 @@ import { TLoading } from "@customTypes/shared";
 import { createSlice } from "@reduxjs/toolkit";
 import actAuthRegister from "./act/actAuthRegister";
 import actAuthLogin from "./act/actAuthLogin";
+import actForgetPassword from "./act/actForgetPassword";
+import actVerifyResetCode from "./act/actVerifyResetCode";
+import actResetPassword from "./act/actResetPassword";
 
 interface IAuthState {
   message: string | null,
@@ -59,6 +62,48 @@ const authSlice = createSlice({
       state.user = action.payload.user;
     })
     builder.addCase(actAuthLogin.rejected, (state, action) => {
+      state.loading = "failed";
+      if (action.payload && typeof action.payload === 'string') {
+        state.error = action.payload;
+      }
+    })
+    // forget password
+    builder.addCase(actForgetPassword.pending, (state) => {
+      state.loading = "pending";
+      state.error = null;
+    })
+    builder.addCase(actForgetPassword.fulfilled, (state) => {
+      state.loading = "succeeded";
+    })
+    builder.addCase(actForgetPassword.rejected, (state, action) => {
+      state.loading = "failed";
+      if (action.payload && typeof action.payload === 'string') {
+        state.error = action.payload;
+      }
+    })
+    // verify code
+    builder.addCase(actVerifyResetCode.pending, (state) => {
+      state.loading = "pending";
+      state.error = null;
+    })
+    builder.addCase(actVerifyResetCode.fulfilled, (state) => {
+      state.loading = "succeeded";
+    })
+    builder.addCase(actVerifyResetCode.rejected, (state, action) => {
+      state.loading = "failed";
+      if (action.payload && typeof action.payload === 'string') {
+        state.error = action.payload;
+      }
+    })
+    // reset password
+    builder.addCase(actResetPassword.pending, (state) => {
+      state.loading = "pending";
+      state.error = null;
+    })
+    builder.addCase(actResetPassword.fulfilled, (state) => {
+      state.loading = "succeeded";
+    })
+    builder.addCase(actResetPassword.rejected, (state, action) => {
       state.loading = "failed";
       if (action.payload && typeof action.payload === 'string') {
         state.error = action.payload;

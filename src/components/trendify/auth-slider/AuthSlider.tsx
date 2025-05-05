@@ -21,7 +21,7 @@ export default function AuthSlider() {
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>
-          <img src={slide} className='w-full object-cover' alt="auth-slider" />
+          <img loading='lazy' src={slide} className='w-full object-cover' alt="auth-slider" />
           <div className="w-full absolute left-1/2 bottom-[20%] text-white -translate-x-[50%] -translate-y-[50%] text-center">
             <h2 className="text-2xl font-bold">Welcome to Trendify</h2>
             <p>Discover the latest trends, <br/> express your unique style.</p>
