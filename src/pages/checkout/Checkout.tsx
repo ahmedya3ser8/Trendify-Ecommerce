@@ -1,44 +1,9 @@
-import { useState } from "react"
-import { SubmitHandler, useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { checkoutSchema, TCheckout } from "@validations/checkoutSchema";
-import { useAppDispatch, useAppSelector } from "@store/hooks";
-import actCheckoutOnline from "@store/orders/act/actCheckoutOnline";
-import { useNavigate, useParams } from "react-router-dom";
 import PageTitle from "@components/common/page-title/PageTitle";
-import actCashOrder from "@store/orders/act/actCashOrder";
-import toast from "react-hot-toast";
+import useCheckout from "@hooks/useCheckout";
 import { Loader } from "lucide-react";
 
 export default function Checkout() {
-  const dispatch = useAppDispatch();
-  const {loading, session} = useAppSelector(state => state.orders);
-  const params = useParams();
-  const navigate = useNavigate();
-  const [paymentMethod, setPaymentMethod] = useState('online');
-  const {register, handleSubmit, formState: {errors}} = useForm<TCheckout>({
-    mode: 'onTouched',
-    resolver: zodResolver(checkoutSchema)
-  })
-  const submitForm: SubmitHandler<TCheckout> = (data) => {
-    if (paymentMethod === 'online') {
-      dispatch(actCheckoutOnline({cartId: params.id as string, shippingAddress: data})).unwrap().then(() => {
-        open(session?.url, '_self');
-        toast.success('Redirecting you to our secure payment provider... Please wait.', {
-          position: 'top-right'
-        })
-      })
-    } else if (paymentMethod === 'cash') {
-      dispatch(actCashOrder({cartId: params.id as string, shippingAddress: data})).unwrap().then((res) => {
-        if (res.status === "success") {
-          navigate('/allorders');
-          toast.success('Thank you! Your order was successful.', {
-            position: 'top-right'
-          })
-        }
-      })
-    }
-  }
+  const {loading, setPaymentMethod, register, handleSubmit, errors, submitForm} = useCheckout();
   return (
     <>
       <PageTitle title="Checkout" />

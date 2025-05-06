@@ -32,6 +32,7 @@ const actAuthLogin = createAsyncThunk('auth/actAuthLogin', async (formData: TFor
     const res = await axios.post<TResponse>(`/api/v1/auth/signin`, formData);
     const token: TToken = jwtDecode(res.data.token!);
     localStorage.setItem('userId', token.id);
+    localStorage.setItem('userName', token.name);
     return res.data;
   } catch (error) {
     return rejectWithValue(axiosErrorHandler(error));
