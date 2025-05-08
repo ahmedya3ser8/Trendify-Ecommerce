@@ -11,8 +11,8 @@ export default function Wishlist() {
       <section className="wishlist py-10 md:py-16">
         <div className="container">
           <div className="flex items-center gap-1">
-            <h2 className="text-text text-3xl font-medium">Wishlist</h2>
-            <span className="text-primary"> {count} items</span>
+            <h2 className="text-text dark:text-gray-100 text-3xl font-medium">Wishlist</h2>
+            <span className="text-primary dark:text-gray-300"> {count} items</span>
           </div>
             {data.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
@@ -20,7 +20,7 @@ export default function Wishlist() {
                   <WishlistItem key={product.id} addToCart={addToCart} removeFromWishlist={removeFromWishlist} product={product} wishlistLoading={wishlistLoading} loading={loading} currentId={currentId} />
                 ))}
               </div>
-              ) : <div className='flex justify-center items-center h-screen'>
+              ) : <div className='flex justify-center items-center h-screen dark:text-gray-100'>
               your cart is empty! <Link to='/products' className='text-gray-400 underline ms-1' >Go To Shop</Link> 🛒🚫
               </div>
             }

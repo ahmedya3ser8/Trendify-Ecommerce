@@ -17,8 +17,8 @@ export default function Register() {
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2 pt-8 md:pt-10">
             <div className="container w-[70%]">
-              <h1 className='text-3xl font-semibold text-text'>Create a Account</h1>
-              <p className='text-sm text-gray-400'>Create a new account</p>
+              <h1 className='text-3xl font-semibold text-text dark:text-gray-100'>Create a Account</h1>
+              <p className='text-sm text-gray-400 dark:text-gray-300'>Create a new account</p>
               <form onSubmit={handleSubmit(submitForm)} className='mt-4'>
                 <Input label='User Name' Icon={User} name='name' placeholder='username' error={formError.name?.message as string} register={register} />
                 <Input label='E-mail' type='email' Icon={Mail} name='email' placeholder='user@user.com' error={formError.email?.message as string} register={register} />
@@ -28,7 +28,7 @@ export default function Register() {
                 <button type='submit' className='w-full p-3 bg-[#8b5e35e6] text-white rounded-full transition-colors hover:bg-primary'>
                   {loading === "pending" ? <Loader className='animate-spin mx-auto' /> : 'Sign Up'}
                 </button>
-                <p className='text-center mt-[6px]'>Already have an account? <Link to="/auth/login" className='underline text-primary'>Login</Link> </p>
+                <p className='text-center mt-[6px] dark:text-gray-100'>Already have an account? <Link to="/auth/login" className='underline text-primary'>Login</Link> </p>
               </form>
             </div>
           </div>

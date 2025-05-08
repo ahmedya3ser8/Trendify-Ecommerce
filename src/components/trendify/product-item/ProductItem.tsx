@@ -6,8 +6,8 @@ import { memo } from 'react';
 const ProductItem = memo(({id, imageCover, price, title, ratingsAverage}: IProduct) => {
   const {loading, productIds, wishlistLoading, navigate, currentId, addToCart, addToWishlist, removeFromWishlist} = useProductItem();
   return (
-    <div className="product bg-white p-2">
-      <div className="image block cursor-pointer bg-[#F1F1F1] rounded-[5px] w-full mb-2 relative">
+    <div className="product bg-white dark:bg-[#1e1e1e] p-2">
+      <div className="image block cursor-pointer bg-[#F1F1F1] dark:bg-[#121212] rounded-[5px] w-full mb-2 relative">
         <img onClick={() => navigate(`/product/${id}`)} loading="lazy" src={imageCover} className="w-full h-[275px] object-contain" alt="product-image" />
         {productIds.includes(id) ? (
           <>
@@ -23,15 +23,15 @@ const ProductItem = memo(({id, imageCover, price, title, ratingsAverage}: IProdu
             </>
           )}
       </div>
-      <div className="content p-2 text-text">
+      <div className="content p-2 text-text dark:text-gray-100">
         <h3 className="text-[24px] line-clamp-1"> {title} </h3>
         <span className="flex items-center gap-1 py-2">
-          <Star className='text-yellow-600 size-5' />
-          <span className="text-text">{ratingsAverage}</span>
+          <Star className='text-yellow-600 dark:text-gray-100 size-5' />
+          <span className="text-text dark:text-gray-100">{ratingsAverage}</span>
           <span className="text-gray-300 text-sm">(500+)</span>
         </span>
         <div className="flex justify-between items-center">
-          <div className="text-primary">
+          <div className="text-primary dark:text-gray-100">
             {price} EGP
           </div>
           <button onClick={() => addToCart(id)} className="w-8 h-8 flex justify-center items-center bg-primary text-white rounded-md">

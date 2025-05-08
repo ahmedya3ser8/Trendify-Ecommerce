@@ -47,8 +47,8 @@ export default function ForgetPassword() {
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2 flex flex-col justify-center">
             <div className="container w-[70%]">
-              <h2 className="text-text-color text-3xl mb-2 font-medium">Forget Password</h2>
-              <p className="text-sm text-gray-400 mb-4">Please Finish This steps in order to reset your password</p>
+              <h2 className="text-text dark:text-gray-100 text-3xl mb-2 font-medium">Forget Password</h2>
+              <p className="text-sm text-gray-400 dark:text-gray-300 mb-4">Please Finish This steps in order to reset your password</p>
               {renderForm()}
             </div>
           </div>

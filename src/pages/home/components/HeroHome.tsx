@@ -20,10 +20,7 @@ export default function HeroHome() {
           <div className="flex gap-1 text-xl">
             4.8 |
             <div className="stars flex items-center gap-1">
-              <Star className='size-4' />
-              <Star className='size-4' />
-              <Star className='size-4' />
-              <Star className='size-4' />
+              {[...Array(4)].map((_, i) => <Star key={i} className="size-4" />)}
             </div>
           </div>
           <span>150k Total Review</span>

@@ -14,8 +14,8 @@ export default function Cart() {
         <div className="container">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-1">
-              <h2 className="text-text text-3xl font-medium">Cart</h2>
-              <span className="text-primary"> {numOfCartItems} items</span>
+              <h2 className="text-text dark:text-gray-100 text-3xl font-medium">Cart</h2>
+              <span className="text-primary dark:text-gray-300"> {numOfCartItems} items</span>
             </div>
             <button onClick={clearCart} className="py-2 px-3 rounded-md bg-primary text-white flex items-center gap-1">
               Remove All
@@ -31,10 +31,10 @@ export default function Cart() {
           ): (
             <>
               <div className="grid grid-cols-1 md:grid-cols-[1fr_350px] gap-5 mt-10">
-                <div className="bg-white p-5 rounded-md">
+                <div className="bg-white dark:bg-[#1e1e1e] p-5 rounded-md">
                   {data !== null ? data?.products.map((product) => (
                     <CartItem updateQuantity={updateQuantity} removeCartItem={removeCartItem} key={product._id} count={product.count} price={product.price} product={product.product} />
-                    )) : <div className='flex justify-center items-center h-full'>
+                    )) : <div className='flex justify-center items-center h-full dark:text-gray-100'>
                       your cart is empty! <Link to='/products' className='text-gray-400 underline ms-1' >Go To Shop</Link> 🛒🚫
                     </div>
                   }

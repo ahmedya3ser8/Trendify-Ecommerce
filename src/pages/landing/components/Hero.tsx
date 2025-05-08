@@ -8,11 +8,11 @@ export default function Hero() {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-[65%_30%] gap-12 items-center px-5 md:px-0">
           <div className="col relative">
-            <h1 className="text-[30px] text-text md:text-[45px] font-semibold">
+            <h1 className="text-[30px] text-text dark:text-gray-100 md:text-[45px] font-semibold">
               Elevate Your Style With <br/> The Latest Trends.
             </h1>
             <img loading='lazy' src={brush} className="absolute top-[25%] md:top-[35%] left-[17%]" alt="Brush" />
-            <p className="text-muted max-w-[550px] my-4">
+            <p className="text-muted dark:text-gray-300 max-w-[550px] my-4">
               Explore a curated of stylish, affordable fashion designed to elevate
               your wardrobe. Discover the perfect blend of trend, comfort, and
               individually for your look

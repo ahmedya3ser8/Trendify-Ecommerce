@@ -15,20 +15,20 @@ export default function SpecialTestimonials() {
         <MainTitle title='Testimonials' description={<>What Our Customer Say</>} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
           {data.map((item, index) => (
-            <div key={index} className="card bg-white rounded-md shadow-sm p-5 text-center md:text-left">
-              <span className="text-4xl text-primary">
+            <div key={index} className="card bg-white dark:bg-[#1e1e1e] rounded-md shadow-sm p-5 text-center md:text-left">
+              <span className="text-4xl text-primary dark:text-gray-100">
                 <Quote className='size-7' />
               </span>
-              <p className="my-3 text-gray-400">{item.description}</p>
+              <p className="my-3 text-gray-400 dark:text-gray-300">{item.description}</p>
               <div className="flex gap-2">
                 <img loading='lazy' src={customerImg} className="size-12 rounded-full" alt="customer-image" />
                 <div className="flex justify-between items-center flex-1">
-                  <h3 className="text-text text-xl font-bold"> {item.title} </h3>
+                  <h3 className="text-text dark:text-gray-100 text-xl font-bold"> {item.title} </h3>
                   <div className="flex items-center gap-1">
                     <span>
-                      <Star className='size-5 text-primary' />
+                      <Star className='size-5 text-primary dark:text-gray-100' />
                     </span>
-                    <span>{item.count}</span>
+                    <span className='dark:text-gray-100'>{item.count}</span>
                   </div>
                 </div>
               </div>

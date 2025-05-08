@@ -9,28 +9,28 @@ const formattedDate = date.toLocaleDateString('en-US', {
 
 export default function OrderSummary({totalPrice, cartId}: {totalPrice: number, cartId: string}) {
   return (
-    <div className="bg-white p-5 rounded-md h-fit">
-      <h3 className="text-text text-2xl mb-4">Order Summary</h3>
+    <div className="bg-white dark:bg-[#1e1e1e] p-5 rounded-md h-fit">
+      <h3 className="text-text dark:text-gray-100 text-2xl mb-4">Order Summary</h3>
       <div className="border-b border-gray-300">
-        <div className="flex justify-between items-center text-text mb-4">
+        <div className="flex justify-between items-center text-text dark:text-gray-100 mb-4">
           <span>Price</span>
           <span> {totalPrice} EGP</span>
         </div>
-        <div className="flex justify-between items-center text-text mb-4">
+        <div className="flex justify-between items-center text-text dark:text-gray-100 mb-4">
           <span>Shipping</span>
           <span className="text-primary">Free</span>
         </div>
-        <div className="flex justify-between items-center text-text mb-4">
+        <div className="flex justify-between items-center text-text dark:text-gray-100 mb-4">
           <span>Coupon Applied</span>
           <span>0.00EGP</span>
         </div>
       </div>
       <div className="pt-5">
-        <div className="flex justify-between items-center text-text mb-4">
+        <div className="flex justify-between items-center text-text dark:text-gray-100 mb-4">
           <span className="uppercase">Total</span>
           <span> {totalPrice} EGP</span>
         </div>
-        <div className="flex justify-between items-center text-text mb-4">
+        <div className="flex justify-between items-center text-text dark:text-gray-100 mb-4">
           <span>Estimated Delivery by</span>
           <span>{formattedDate}</span>
         </div>

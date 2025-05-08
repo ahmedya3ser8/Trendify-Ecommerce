@@ -14,36 +14,18 @@ export default function HomeSlider() {
           disableOnInteraction: false,
         }}
       >
-        <SwiperSlide>
-          <div className="relative text-white">
-            <img loading='lazy' src={homeSliderImg} className="w-full h-[500px] object-cover" alt="slide-image" />
-            <div className="absolute top-[40%] left-0 translate-x-[50%]">
-              <h2 className="text-3xl md:text-4xl font-medium mb-3"> Upgrade your Style </h2>
-              <p className="text-[16px] md:text-[25px] mb-5"> up to 50% off on all <br/> clothing and accessories! </p>
-              <button className="py-3 px-5 bg-primary text-white rounded-md">Shop Now</button>
+        {[...Array(3).fill(0)].map((_, index) => (
+          <SwiperSlide key={index}>
+            <div className="relative text-white dark:bg-[#1e1e1e]">
+              <img loading='lazy' src={homeSliderImg} className="w-full h-[500px] object-cover" alt="slide-image" />
+              <div className="absolute top-[40%] left-0 translate-x-[50%]">
+                <h2 className="text-3xl md:text-4xl font-medium mb-3"> Upgrade your Style </h2>
+                <p className="text-[16px] md:text-[25px] mb-5"> up to 50% off on all <br/> clothing and accessories! </p>
+                <button className="py-3 px-5 bg-primary text-white rounded-md">Shop Now</button>
+              </div>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative text-white">
-            <img loading='lazy' src={homeSliderImg} className="w-full h-[500px] object-cover" alt="slide-image" />
-            <div className="absolute top-[40%] left-0 translate-x-[50%]">
-              <h2 className="text-3xl md:text-4xl font-medium mb-3"> Upgrade your Style </h2>
-              <p className="text-[16px] md:text-[25px] mb-5"> up to 50% off on all <br/> clothing and accessories! </p>
-              <button className="py-3 px-5 bg-primary text-white rounded-md">Shop Now</button>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative text-white">
-            <img loading='lazy' src={homeSliderImg} className="w-full h-[500px] object-cover" alt="slide-image" />
-            <div className="absolute top-[40%] left-0 translate-x-[50%]">
-              <h2 className="text-3xl md:text-4xl font-medium mb-3"> Upgrade your Style </h2>
-              <p className="text-[16px] md:text-[25px] mb-5"> up to 50% off on all <br/> clothing and accessories! </p>
-              <button className="py-3 px-5 bg-primary text-white rounded-md">Shop Now</button>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   )

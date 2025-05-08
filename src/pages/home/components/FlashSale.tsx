@@ -1,28 +1,22 @@
 import Button from "@components/common/button/Button";
 import MainTitle from "@components/trendify/main-title/MainTitle";
 import ProductItem from "@components/trendify/product-item/ProductItem";
-import { useAppDispatch, useAppSelector } from "@store/hooks";
-import actGetProducts from "@store/products/act/actGetProducts";
-import { useEffect } from "react";
+import useProductsQuery from "@hooks/useProductsQuery";
 
 export default function FlashSale() {
-  const dispatch = useAppDispatch();
-  const {loading, data} = useAppSelector(state => state.products);
-  useEffect(() => {
-    dispatch(actGetProducts()).unwrap();
-  }, [dispatch])
+  const {data, isLoading} = useProductsQuery();
   return (
     <section className="flash-sale py-10 md:py-16">
       <div className="container">
         <MainTitle title="Flash Sale" description={<>Grab Them Before They're Gone!</>} />
-        {loading === 'pending' ? (
+        {isLoading ? (
           <div className="flex items-center justify-center h-screen">
             <span className="loader"></span>
           </div>
         ): (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10">
-              {data.slice(0,4).map((product) => (
+              {data?.data.slice(0,4).map((product) => (
                 <ProductItem key={product.id} {...product} />
               ))}
             </div>
