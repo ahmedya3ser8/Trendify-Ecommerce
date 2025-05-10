@@ -16,7 +16,7 @@ async function getCategories() {
   }
 }
 
-function useCategoriesQuery() {
+function useCategories() {
   return useQuery({
     queryKey: ['categories'],
     queryFn: getCategories,
@@ -25,4 +25,4 @@ function useCategoriesQuery() {
   })
 }
 
-export default useCategoriesQuery;
+export default useCategories;

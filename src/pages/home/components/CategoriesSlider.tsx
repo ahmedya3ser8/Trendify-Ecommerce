@@ -1,9 +1,9 @@
-import useCategoriesQuery from '@hooks/useCategoriesQuery';
+import useCategories from '@hooks/useCategories';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function CategoriesSlider() {
-  const {data, isLoading} = useCategoriesQuery();
+  const {data, isLoading} = useCategories();
   return (
     <section className="categories-slider bg-white dark:bg-[#1e1e1e] py-10 md:py-16">
       <div className="container">

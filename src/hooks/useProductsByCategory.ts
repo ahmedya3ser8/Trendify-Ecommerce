@@ -29,7 +29,7 @@ const fetchProductsByCategoryId = async (page: number, categoryId: string) => {
   }
 };
 
-const useProductsByCategoryQuery = (currentPage: number, categoryId: string) => {
+const useProductsByCategory = (currentPage: number, categoryId: string) => {
   return useQuery<TResponse>({
     queryKey: ['products', 'category', currentPage, categoryId],
     queryFn: () => fetchProductsByCategoryId(currentPage, categoryId),
@@ -37,4 +37,4 @@ const useProductsByCategoryQuery = (currentPage: number, categoryId: string) => 
   });
 };
 
-export default useProductsByCategoryQuery;
+export default useProductsByCategory;

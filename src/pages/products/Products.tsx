@@ -1,7 +1,7 @@
 import PageTitle from '@components/common/page-title/PageTitle';
 import ProductItem from '@components/trendify/product-item/ProductItem';
-import useCategoriesQuery from '@hooks/useCategoriesQuery';
-import useProductsByCategoryQuery from '@hooks/useProductsByCategoryQuery';
+import useCategories from '@hooks/useCategories';
+import useProductsByCategory from '@hooks/useProductsByCategory';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
@@ -10,8 +10,8 @@ export default function Products() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCatId, setSelectedCatId] = useState('0');
   const [categoryName, setCategoryName] = useState('All Products');
-  const {data: categories} = useCategoriesQuery();
-  const {data: allProducts, isLoading} = useProductsByCategoryQuery(currentPage, selectedCatId)
+  const {data: categories} = useCategories();
+  const {data: allProducts, isLoading} = useProductsByCategory(currentPage, selectedCatId)
   const selectedCategory = (catId: string, catName: string) => {
     setSelectedCatId(catId);
     setCategoryName(catName);

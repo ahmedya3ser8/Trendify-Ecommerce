@@ -1,5 +1,5 @@
 import Button from '@components/common/button/Button'
-import useProductsByCategoryQuery from '@hooks/useProductsByCategoryQuery'
+import useProductsByCategory from '@hooks/useProductsByCategory'
 import { useState } from 'react'
 import MainTitle from '../main-title/MainTitle'
 import ProductItem from '../product-item/ProductItem'
@@ -13,7 +13,7 @@ const categoriesName = [
 
 export default function SpecialProducts() {
   const [selectedCatId, setSelectedCatId] = useState('');
-  const {data, isLoading} = useProductsByCategoryQuery(1,
+  const {data, isLoading} = useProductsByCategory(1,
     selectedCatId === '' ? '6439d58a0049ad0b52b9003f' : selectedCatId
   )
   return (

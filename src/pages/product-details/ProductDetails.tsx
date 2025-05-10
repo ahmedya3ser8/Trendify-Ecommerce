@@ -1,42 +1,10 @@
 import PageTitle from "@components/common/page-title/PageTitle";
-import useProductDetailsQuery from "@hooks/useProductDetailsQuery";
+import useProductDetails from "@hooks/useProductDetails";
 import { Heart, Star, Truck } from "lucide-react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-
-const colors = [
-  {name: 'Blue', color: '#507ccd'},
-  {name: 'White', color: '#fff'},
-  {name: 'Brown', color: '#c88242'},
-  {name: 'Black', color: '#000'},
-  {name: 'Soft Clay', color: '#dcb9a8'},
-  {name: 'Misty Olive', color: '#a7b2a3'}
-]
-const sizes = [
-  {name: 'Extra Small', size: 'XS'},
-  {name: 'Small', size: 'S'},
-  {name: 'Medium', size: 'M'},
-  {name: 'Large', size: 'L'},
-  {name: 'Extra Large', size: 'XL'},
-  {name: 'Double Extra Large', size: 'XXL'},
-  {name: 'Triple Extra Large', size: 'XXXL'}
-]
+import RelatedProducts from "./components/RelatedProducts";
 
 export default function ProductDetails() {
-  const [colorName, setColorName] = useState('Blue');
-  const [sizeName, setSizeName] = useState('Medium');
-  const [imgPath, setImgPath] = useState('');
-  function selectedColor(name: string) {
-    setColorName(name);
-  }
-  function selectedSize(name: string) {
-    setSizeName(name);
-  }
-  function selectedImg(img: string) {
-    setImgPath(img);
-  }
-  const params = useParams();
-  const {isLoading, data: product} = useProductDetailsQuery(params.id as string);
+  const {isLoading, product, colorName, sizeName, imgPath, selectedColor, selectedImg, selectedSize, colors, sizes} = useProductDetails()
   return (
     <>
       <PageTitle title="ProductDetails" />
@@ -114,6 +82,7 @@ export default function ProductDetails() {
             )}
         </div>
       </section>
+      <RelatedProducts categoryId={product?.data?.category?._id as string} />
     </>
   )
 }
