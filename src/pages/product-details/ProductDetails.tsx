@@ -51,7 +51,7 @@ export default function ProductDetails() {
             ) : (
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="image flex flex-col md:flex-row gap-4 md:gap-8 justify-between">
+                <div className="image h-[400px] md:h-[500px] flex flex-col md:flex-row gap-4 md:gap-8 justify-between">
                   <div className="w-full flex flex-row justify-between md:flex-col md:w-[100px] order-2 md:order-1">
                     {product?.data.images.slice(0,4).map((img, index) => (
                       <div key={index} className="img mb-3 border border-primary dark:border-gray-100 rounded-3xl cursor-pointer overflow-hidden">
@@ -59,7 +59,7 @@ export default function ProductDetails() {
                       </div>
                     ))}
                   </div>
-                  <div className="h-[400px] md:h-[500px] w-full relative order-1 md:order-2">
+                  <div className="h-full w-full relative order-1 md:order-2">
                     <img src={imgPath == '' ? product?.data.imageCover : imgPath} className="w-full h-full" alt="product-image" />
                     <span className="w-[2.5rem] h-[40px] bg-white dark:bg-[#1e1e1e] border absolute top-3 right-3 flex justify-center items-center z-30 rounded-full cursor-pointer">
                       <Heart className='text-primary dark:text-gray-100' />

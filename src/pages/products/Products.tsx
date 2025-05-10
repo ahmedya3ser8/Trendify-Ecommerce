@@ -2,27 +2,29 @@ import PageTitle from '@components/common/page-title/PageTitle';
 import ProductItem from '@components/trendify/product-item/ProductItem';
 import useCategoriesQuery from '@hooks/useCategoriesQuery';
 import useProductsByCategoryQuery from '@hooks/useProductsByCategoryQuery';
-import useProductsQuery from '@hooks/useProductsQuery';
 import { ChevronDown } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 export default function Products() {
+  const [currentPage, setCurrentPage] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCatId, setSelectedCatId] = useState('0');
   const [categoryName, setCategoryName] = useState('All Products');
   const {data: categories} = useCategoriesQuery();
-  const {data: allProducts} = useProductsQuery();
-  const {data: categoryProducts, isLoading} = useProductsByCategoryQuery(selectedCatId, {
-    enabled: selectedCatId !== '0',
-  })
-  const data = useMemo(() => {
-    return selectedCatId === '0' ? allProducts?.data : categoryProducts?.data;
-  }, [selectedCatId, allProducts, categoryProducts])
+  const {data: allProducts, isLoading} = useProductsByCategoryQuery(currentPage, selectedCatId)
   const selectedCategory = (catId: string, catName: string) => {
     setSelectedCatId(catId);
-    setCategoryName(catName)
+    setCategoryName(catName);
+    setCurrentPage(1);
   }
   const toggleMenu = () => setIsOpen((prev) => !prev);
+  const totalPages = allProducts?.metadata.numberOfPages ?? 1;
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
   return (
     <>
       <PageTitle title="Products" />
@@ -47,7 +49,7 @@ export default function Products() {
             <div className="">
               <h2 className="text-3xl font-medium text-text dark:text-gray-100 mb-3">
                 {categoryName}
-                <span className='text-primary  text-sm'>({data?.length})</span>
+                <span className='text-primary  text-sm'>({allProducts?.results})</span>
               </h2>
               {isLoading ? (
                 <>
@@ -56,12 +58,44 @@ export default function Products() {
                   </div>
                 </>
               ): <>
-                {data?.length ?? 0 ? <>
+                {allProducts?.data?.length ?? 0 ? <>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-                    {data?.slice(0,12).map((product) => (
+                    {allProducts?.data?.slice(0,12).map((product) => (
                       <ProductItem key={product.id} {...product} />
                     ))}
                   </div>
+                  {/* pagination */}
+                    <div className="flex justify-center items-center mt-6 space-x-2">
+                      <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        className="px-3 py-1 border rounded text-text bg-gray-200 hover:bg-gray-300"
+                        disabled={currentPage === 1}
+                      >
+                        Prev
+                      </button>
+                      {[...Array(totalPages)].map((_, index) => {
+                        const pageNum = index + 1;
+                        return (
+                          <button
+                            key={pageNum}
+                            onClick={() => handlePageChange(pageNum)}
+                            className={`px-3 py-1 border rounded ${
+                              pageNum === currentPage ? 'bg-primary text-white' : ''
+                            }`}
+                          >
+                            {pageNum}
+                          </button>
+                        );
+                      })}
+                      <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        className="px-3 py-1 border rounded bg-gray-200 text-text hover:bg-gray-300"
+                        disabled={currentPage === totalPages}
+                      >
+                        Next
+                      </button>
+                    </div>
+                  {/* pagination */}
                 </> : <>
                   <div className='flex justify-center items-center h-full dark:text-gray-100'>No items available in this category yet! 🛒🚫</div>
                 </>}

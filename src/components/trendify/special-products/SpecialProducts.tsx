@@ -13,7 +13,7 @@ const categoriesName = [
 
 export default function SpecialProducts() {
   const [selectedCatId, setSelectedCatId] = useState('');
-  const {data, isLoading} = useProductsByCategoryQuery(
+  const {data, isLoading} = useProductsByCategoryQuery(1,
     selectedCatId === '' ? '6439d58a0049ad0b52b9003f' : selectedCatId
   )
   return (
